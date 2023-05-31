@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block contenido %}
+<div class="row wrapper">
+{% for dato in datos_proveedor %}
+    <div class='col-12 col-md-6 col-lg-4 mb-4'>
+        <div class="card" style="width: 24rem;">
+            <div class="card-header">
+                <div><a class="navbar-link" href="{% url 'form_suppliers' id=dato.id %}">Modificar {{dato.id}}</a></div>
+            </div>
+            <div class="card-body">
+            <h5 class="card-title">{{dato.supplier_name}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{dato.email}}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">{{dato.phone}}</h6>
+                
+            </div>
+        </div>  
+    </div>  
+
+{% endfor %}
+</div>
+{% endblock %}

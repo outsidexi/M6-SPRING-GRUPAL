@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}Login{% endblock %}
+
+{% block contenido %}
+<section class="sección">
+    <div class="card contacto">
+        <div class="card-body">
+            <h5 class="card-title">Formulario de Contacto</h5>
+        <div class="row mt-5">
+            <div class="col-md-12 text-center">
+                {% if form.errors %}
+                    <p style="color:red;"> Usuario y contraseña no coinciden. Intentelo nuevamente </p>
+                {% else %}
+                    <p>Por favor, utilice el siguiente formulario para ingresar: </p>
+                {% endif %}
+            </div>
+        </div>
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-sm" text-rigth>
+                    {{ form.username.label }}  <!-- revisar que va aca -->
+                </div>
+                <div class="col-sm" text-left> 
+                    {{ form.username }}<!-- revisar que va aca -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm" text-rigth>
+                    {{ form.password.label }}  <!-- revisar que va aca -->
+                </div>
+                <div class="col-sm" text-left> 
+                    {{ form.password }} <!-- revisar que va aca -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center" style="margin-top: 1rem;">
+                    <p><input type="submit" value="Ingresar"></p>
+
+                </div>
+                <div class="col-md-12 text-rigth" style="margin-top: 1rem;">
+                    <a href="{% url 'register' %}">Registrar</a>
+                    
+                </div>
+            </div>
+        </form>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

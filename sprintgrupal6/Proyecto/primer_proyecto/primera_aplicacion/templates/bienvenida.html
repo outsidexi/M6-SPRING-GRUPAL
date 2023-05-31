@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}Te lo Vendo{% endblock %}
+
+{% block contenido %}
+<section>
+    
+    <div class="row">
+        {% if user.is_authenticated %}
+        
+        <div class="col-11 p-5 text-center m-5">
+            <h1>Registro Exitoso</h1>
+            <h2 class="mt-5">Hola <b><h1>{{ user.first_name }} {{ user.last_name }}</h1></b> Welcome a te lo vendo </h2>
+            <div style="clear: both; margin-top: 150px;"></div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

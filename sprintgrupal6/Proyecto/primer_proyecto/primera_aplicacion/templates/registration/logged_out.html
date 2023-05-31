@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}Logout{% endblock %}
+
+{% block contenido %}
+<section class="sección">
+    <div class="card contacto">
+        <div class="card-body">
+            <h5 class="card-title">Sesión terminada</h5>
+        <div class="row mt-5">
+            <div class="col-md-12 text-center">
+                <p>Usted ha salido de la aplicación. Gracias por su visita.</p>
+                <p> Puede <a href="{% url 'login' %}"></a> Iniciar Sesión nuevamente</p>
+            </div>
+        </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}
+<h1>Formulario de Contacto</h1>
+{% endblock %}
+{% block contenido %}
+
+  <form method="post" action="/formulario_usuarios/{{username}}">
+    {% csrf_token %}
+    <input type="hidden" id="iduser" value="{{username}}">
+    <div class="content">
+      <div class="row">
+        <div class="col-5 form-group">
+          <label for="nombre" class="form-label">Dirección</label>
+          {{form.direccion}}
+        </div>
+        
+        <div class="col-2 form-group">
+          <label for="edad" class="form-label">Edad</label>
+          {{form.edad}}
+        </div>
+        <div class="col-12 form-group">
+          <label for="email" class="form-label">Profesión</label>
+          {{form.profesion}}
+        </div>
+       
+      </div>
+      <div class="row">
+        <div class="col-12 form-group mt-4">
+          <button type="submit" class="btn btn-primary">Enviar</button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+{% endblock %}

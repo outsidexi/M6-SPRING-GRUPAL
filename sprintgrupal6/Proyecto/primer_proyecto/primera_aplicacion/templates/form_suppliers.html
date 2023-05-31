@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block titulo %}
+<h1>Formulario de Contacto</h1>
+{% endblock %}
+{% block contenido %}
+
+  <form method="post" action="/formulario_proveedores/{{supplier_name}}">
+    {% csrf_token %}
+    <input type="hidden" id="idsupplier" value="{{supplier_name}}">
+    <div class="content">
+      <div class="row">
+        <div class="col-5 form-group">
+          <label for="nombre" class="form-label">Dirección</label>
+          {{form.direccion}}
+        </div>
+        
+        <div class="col-2 form-group">
+          <label for="area" class="form-label">area</label>
+          {{form.area}}
+        </div>
+        <div class="col-12 form-group">
+          <label for="producto" class="form-label">producto</label>
+          {{form.producto}}
+        </div>
+       
+      </div>
+      <div class="row">
+        <div class="col-12 form-group mt-4">
+          <button type="submit" class="btn btn-primary">Enviar</button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+{% endblock %}
